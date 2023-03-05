@@ -8,7 +8,7 @@ def lambda_handler(event, context):
     if event['method'] == 'boto3':
         print('************ executando boto3 ***************')
         client = boto3.client('ssm')
-        response = client.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
+        response = client.get_parameter(Name='/IntegracaoDigital/Gateway/Mainframe/credentials')
     else:
         response = {}
     return {
