@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     if event['method'] == 'boto3':
         print('************ executando boto3 ***************')
         client = boto3.client('ssm')
-        arn = client.get_parameter(Name='/IntegracaoDigital/Gateway/Mainframe/credentials')['Parameter']['Value']
+        credentials = client.get_parameter(Name='/IntegracaoDigital/Gateway/Mainframe/credentials')['Parameter']['Value']
         url = client.get_parameter(Name='/IntegracaoDigital/Gateway/Mainframe/url')['Parameter']['Value']
     else:
         print('************ executando AWS lambda powertools ***************')
