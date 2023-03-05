@@ -7,9 +7,9 @@ client = boto3.client('ssm')
 
 def lambda_handler(event, context):
     response = {}
-    arn   = ''
-    url   = ''
-    user  = ''
+    credentials = ''
+    url = ''
+    user = ''
     token = ''
 
     if event['method'] == 'boto3':
@@ -23,7 +23,7 @@ def lambda_handler(event, context):
         user = parameters.get_parameter(credentials)
 
     response = {
-        'arn':arn,
+        'credentials': credentials,
         'url': url,
         'user': user,
         'token': token
