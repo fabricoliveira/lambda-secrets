@@ -12,4 +12,4 @@ def lambda_handler(event, context):
     else:
         response = {}
 
-    return response
+    return response['Parameter']
