@@ -7,6 +7,7 @@ client = boto3.client('ssm')
 
 def lambda_handler(event, context):
     response = ''
+    print(event['method'])
     if event['method'] is 'boto3':
         response = client.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
     else:
