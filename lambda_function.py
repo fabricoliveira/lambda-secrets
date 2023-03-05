@@ -11,7 +11,5 @@ def lambda_handler(event, context):
         response = client.get_parameter(Name='/IntegracaoDigital/Gateway/Mainframe/credentials')
     else:
         response = {}
-    return {
-        'statusCode': 200,
-        'body': json.dumps({'secrets':response.items()})
-    }
+
+    return response
