@@ -20,7 +20,9 @@ def lambda_handler(event, context):
         print('************ executando AWS lambda powertools ***************')
         url = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/url')
         credentials = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
-        credentials = json.dumps(parameters.get_secret(credentials))
+        credentials = json.loads(parameters.get_secret(credentials))
+        user = credentials['gateway-mainframe-ims-user']
+        token = credentials['gateway-mainframe-ims-token']
 
     response = {
         'credentials': credentials,
