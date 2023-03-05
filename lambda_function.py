@@ -1,5 +1,4 @@
-import json
-import boto3
+ json
 
 from aws_lambda_powertools.utilities import parameters
 
@@ -7,10 +6,7 @@ from aws_lambda_powertools.utilities import parameters
 def lambda_handler(event, context):
     response = {}
 
-
     url = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/url')
-
-
 
     credentials = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
     credentials = json.loads(parameters.get_secret(credentials))
