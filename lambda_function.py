@@ -1,4 +1,4 @@
- json
+import json
 
 from aws_lambda_powertools.utilities import parameters
 
