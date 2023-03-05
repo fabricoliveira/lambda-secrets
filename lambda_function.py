@@ -9,11 +9,12 @@ def lambda_handler(event, context):
 
 
     url = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/url')
-    
+
 
 
     credentials = parameters.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
     credentials = json.loads(parameters.get_secret(credentials))
+    
     user = credentials['gateway-mainframe-ims-user']
     token = credentials['gateway-mainframe-ims-token']
 
@@ -23,4 +24,5 @@ def lambda_handler(event, context):
         'user': user,
         'token': token
     }
+    
     return response
