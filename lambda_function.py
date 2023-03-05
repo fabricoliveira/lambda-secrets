@@ -21,4 +21,7 @@ def lambda_handler(event, context):
         'token': token
     }
     
-    return response
+    return {
+        'status_code': 200,
+        'body': json.jumps(response)
+    }
