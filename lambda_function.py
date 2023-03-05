@@ -1,8 +1,17 @@
 import json
+import boto3
+
+
+client = boto3.client('ssm')
+
 
 def lambda_handler(event, context):
-    # TODO implement
+    response = ''
+    if event['method'] is 'boto3':
+        secrets = client.get_parameter('/IntegracaoDigital/Gateway/Mainframe/credentials')
+    else:
+        response = {}
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'body': json.dumps({'secrets':response['Parameter']['Value']})
     }
